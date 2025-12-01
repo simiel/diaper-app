@@ -14,7 +14,7 @@ export default function Header() {
           {[...Array(12)].map((_, i) => (
             <div key={i} className="flex gap-2.5 items-center shrink-0">
               <p className="font-semibold text-sm capitalize tracking-[-0.32px]">
-                Free Shipping On Orders Over $40
+                Free Shipping in Accra
               </p>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M10 0L12.5 7.5L20 10L12.5 12.5L10 20L7.5 12.5L0 10L7.5 7.5L10 0Z" fill="currentColor"/>
