@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pure Hug - Kids Diaper Ecommerce Website
+
+A modern, responsive ecommerce website for Pure Hug diaper products, built with Next.js 16, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🎨 **Modern Design**: Clean, playful design matching the Figma specifications
+- 📱 **Fully Responsive**: Optimized for mobile, tablet, and desktop devices
+- ⚡ **Next.js 16**: Built with the latest Next.js App Router
+- 🎯 **TypeScript**: Type-safe development
+- 🎨 **Tailwind CSS**: Utility-first CSS framework
+- 🚀 **Performance**: Optimized for fast loading and smooth interactions
+
+## Design System
+
+### Colors
+- **Primary**: `#522260` (Purple)
+- **Primary Light**: `#fee1eb` (Light Pink)
+- **Green**: `#4CAF50`
+- **Orange**: `#FF9800`
+
+### Typography
+- **Headings**: Anton (Google Fonts)
+- **Body**: Inter (Google Fonts)
+- **Accent**: Roboto (Google Fonts)
+
+## Project Structure
+
+```
+diaper-app/
+├── app/
+│   ├── globals.css          # Global styles and design tokens
+│   ├── layout.tsx           # Root layout with fonts
+│   └── page.tsx             # Main landing page
+├── components/
+│   ├── Header.tsx           # Navigation header
+│   ├── Hero.tsx             # Hero section
+│   ├── ProductCard.tsx      # Reusable product card
+│   ├── ProductsSection.tsx  # Products grid section
+│   ├── MotivationalSection.tsx # Motivational content section
+│   ├── LifeSection.tsx      # Life section with image grid
+│   ├── FeaturesSection.tsx  # Features showcase
+│   ├── TestimonialsSection.tsx # Customer testimonials
+│   ├── NewsletterSection.tsx # Newsletter signup
+│   └── Footer.tsx           # Footer with links
+└── public/                  # Static assets
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
+### Installation
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Development
 
-## Learn More
+### Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Key Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Header**: Responsive navigation with mobile menu
+- **Hero**: Large hero section with call-to-action
+- **ProductCard**: Reusable card component for products
+- **ProductsSection**: Grid layout for product showcase
+- **FeaturesSection**: Circular feature display
+- **TestimonialsSection**: Carousel for customer reviews
+- **NewsletterSection**: Email subscription form
+- **Footer**: Multi-column footer with links
 
-## Deploy on Vercel
+## Next Steps
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To complete the ecommerce functionality, consider adding:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Product Pages**: Individual product detail pages
+2. **Shopping Cart**: Cart functionality and checkout
+3. **User Authentication**: Login/signup pages
+4. **Product Search**: Search functionality
+5. **Category Pages**: Filter products by category
+6. **Payment Integration**: Stripe or similar payment gateway
+7. **Order Management**: Order history and tracking
+8. **Admin Dashboard**: Product management interface
+
+## Design Notes
+
+The design follows the Figma specifications with:
+- Large, bold typography using Anton font
+- Purple (#522260) as the primary brand color
+- Rounded corners (100px for buttons, 47px for cards)
+- Cloud decorations throughout sections
+- Responsive grid layouts
+- Smooth transitions and hover effects
+
+## License
+
+This project is private and proprietary.
