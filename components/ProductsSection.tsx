@@ -1,47 +1,47 @@
-import ProductCard from './ProductCard';
+import ProductCard from "./ProductCard";
 
 const products = [
   {
-    id: '1',
-    name: 'Diaper Products',
-    price: '$10.00',
-    image: '/placeholder-product.png',
-    imageAlt: 'Diaper Product 1'
+    id: "1",
+    name: "Diaper Products",
+    price: "$10.00",
+    image: "/diaper1.png",
+    imageAlt: "Diaper Product 1",
   },
   {
-    id: '2',
-    name: 'Diaper Products',
-    price: '$10.00',
-    image: '/placeholder-product.png',
-    imageAlt: 'Diaper Product 2'
+    id: "2",
+    name: "Diaper Products",
+    price: "$10.00",
+    image: "/diaper2.png",
+    imageAlt: "Diaper Product 2",
   },
   {
-    id: '3',
-    name: 'Diaper Products',
-    price: '$10.00',
-    image: '/placeholder-product.png',
-    imageAlt: 'Diaper Product 3'
+    id: "3",
+    name: "Diaper Products",
+    price: "$10.00",
+    image: "/diaper3.png",
+    imageAlt: "Diaper Product 3",
   },
   {
-    id: '4',
-    name: 'Diaper Products',
-    price: '$10.00',
-    image: '/placeholder-product.png',
-    imageAlt: 'Diaper Product 4'
+    id: "4",
+    name: "Diaper Products",
+    price: "$10.00",
+    image: "/diaper2.png",
+    imageAlt: "Diaper Product 4",
   },
   {
-    id: '5',
-    name: 'Diaper Products',
-    price: '$10.00',
-    image: '/placeholder-product.png',
-    imageAlt: 'Diaper Product 5'
+    id: "5",
+    name: "Diaper Products",
+    price: "$10.00",
+    image: "/diaper1.png",
+    imageAlt: "Diaper Product 5",
   },
   {
-    id: '6',
-    name: 'Diaper Products',
-    price: '$10.00',
-    image: '/placeholder-product.png',
-    imageAlt: 'Diaper Product 6'
+    id: "6",
+    name: "Diaper Products",
+    price: "$10.00",
+    image: "/diaper2.png",
+    imageAlt: "Diaper Product 6",
   },
 ];
 
@@ -52,12 +52,20 @@ export default function ProductsSection() {
       <div className="absolute bottom-0 left-0 w-full h-32">
         <div className="absolute bottom-0 left-[-79px] w-[805px] h-[579px] opacity-30">
           <svg viewBox="0 0 805 579" fill="none" className="w-full h-full">
-            <path d="M0 200C0 89.543 89.543 0 200 0H605C715.457 0 805 89.543 805 200V579H0V200Z" fill="white" fillOpacity="0.8"/>
+            <path
+              d="M0 200C0 89.543 89.543 0 200 0H605C715.457 0 805 89.543 805 200V579H0V200Z"
+              fill="white"
+              fillOpacity="0.8"
+            />
           </svg>
         </div>
         <div className="absolute bottom-0 right-[-79px] w-[805px] h-[579px] opacity-30">
           <svg viewBox="0 0 805 579" fill="none" className="w-full h-full">
-            <path d="M0 200C0 89.543 89.543 0 200 0H605C715.457 0 805 89.543 805 200V579H0V200Z" fill="white" fillOpacity="0.8"/>
+            <path
+              d="M0 200C0 89.543 89.543 0 200 0H605C715.457 0 805 89.543 805 200V579H0V200Z"
+              fill="white"
+              fillOpacity="0.8"
+            />
           </svg>
         </div>
       </div>
@@ -78,4 +86,3 @@ export default function ProductsSection() {
     </section>
   );
 }
-
