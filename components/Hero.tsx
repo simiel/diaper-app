@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import Nav from "./Nav";
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-[600px] bg-gradient-to-br from-[#FF9800] to-[#FFC107] overflow-hidden">
+      {/* Navbar */}
+      <Nav />
+
       {/* Cloud decorations */}
       <div className="absolute bottom-0 left-0 w-full h-32">
         <div className="absolute bottom-[-200px] left-[-104px] w-[805px] h-[579px]">
@@ -15,7 +19,16 @@ export default function Hero() {
             unoptimized
           />
         </div>
-        <div className="absolute bottom-[-350px] right-[-100px] w-[805px] h-[579px]">
+        <div className="absolute bottom-[-400px] left-1/2 -translate-x-1/2 w-[805px] h-[579px]">
+          <Image
+            src="/cloud2.svg"
+            alt="Cloud"
+            fill
+            className="object-contain rotate-y-0"
+            unoptimized
+          />
+        </div>
+        <div className="absolute bottom-[-400px] right-[-100px] w-[805px] h-[579px]">
           <Image
             src="/cloud2.svg"
             alt="Cloud"
