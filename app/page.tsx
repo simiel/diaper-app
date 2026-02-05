@@ -7,7 +7,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import NewsletterSection from '@/components/NewsletterSection';
 import Footer from '@/components/Footer';
-import ChatC from '@/components/ChatC';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
       <TestimonialsSection />
       <NewsletterSection />
       <Footer />
-      <ChatC />
+      <WhatsAppButton />
     </main>
   );
 }
