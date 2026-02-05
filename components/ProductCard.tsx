@@ -7,6 +7,7 @@ interface ProductCardProps {
   price: string;
   image: string;
   imageAlt?: string;
+  tag?: string;
 }
 
 export default function ProductCard({
@@ -15,11 +16,12 @@ export default function ProductCard({
   price,
   image,
   imageAlt = "Product",
+  tag,
 }: ProductCardProps) {
   return (
-    <div className="relative bg-white rounded-[47px] shadow-[0px_4px_7.4px_0px_#fee1eb] p-6 flex flex-col items-center">
+    <div className="relative bg-white rounded-3xl border border-[var(--color-line)] p-6 flex flex-col items-center hover-lift">
       {/* Product Image */}
-      <div className="relative w-full h-[238px] mb-6 -mt-12">
+      <div className="relative w-full h-[220px] mb-6">
         <Image
           src={image}
           alt={imageAlt}
@@ -31,10 +33,15 @@ export default function ProductCard({
 
       {/* Product Info */}
       <div className="w-full flex flex-col items-start gap-2 mb-6">
-        <h3 className="font-semibold text-[32px] leading-9 text-[#522260] tracking-[-0.64px]">
+        {tag && (
+          <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
+            {tag}
+          </span>
+        )}
+        <h3 className="text-2xl text-[var(--color-ink)]">
           {name}
         </h3>
-        <p className="font-semibold text-[32px] leading-9 text-[#522260] tracking-[-0.64px]">
+        <p className="text-xl font-semibold text-[var(--color-primary)]">
           {price}
         </p>
       </div>
@@ -43,12 +50,12 @@ export default function ProductCard({
       <div className="w-full flex items-center gap-4">
         <Link
           href={`/products/${id}`}
-          className="flex-1 flex items-center justify-center gap-1 bg-[#522260] text-white px-6 py-4 rounded-full font-['Anton'] text-xl uppercase hover:opacity-90 transition-opacity"
+          className="flex-1 flex items-center justify-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-sm uppercase tracking-wide hover:opacity-90 transition-opacity"
         >
           Shop now
           <svg
-            width="21"
-            height="21"
+            width="18"
+            height="18"
             viewBox="0 0 21 21"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -63,10 +70,9 @@ export default function ProductCard({
             />
           </svg>
         </Link>
-        <button className="flex items-center justify-center w-[65px] h-[65px] bg-[#522260] text-white rounded-full hover:opacity-90 transition-opacity">
-          <span className="font-['Roboto'] font-extralight text-[64px] leading-[27.5px]">
-            +
-          </span>
+        <button className="flex items-center justify-center w-[52px] h-[52px] bg-[var(--color-primary-soft)] text-[var(--color-primary)] rounded-full hover:opacity-90 transition-opacity">
+          <span className="text-2xl leading-none">+</span>
+          <span className="sr-only">Add to cart</span>
         </button>
       </div>
     </div>
