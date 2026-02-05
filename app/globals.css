@@ -1,27 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfaf7;
+  --foreground: #2b2b2b;
 
   /* Design System Colors */
-  --color-primary: #522260;
-  --color-primary-light: #fee1eb;
+  --color-primary: #2f3a32;
+  --color-primary-soft: #e9efe7;
+  --color-accent: #d9a5a5;
+  --color-sand: #f3eee6;
+  --color-ink: #2b2b2b;
+  --color-muted: #6f6f6f;
+  --color-line: #e6e1d9;
   --color-white: #ffffff;
-  --color-black: #000000;
-  --color-green: #4caf50;
-  --color-orange: #ff9800;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--color-primary);
-  --color-primary-light: var(--color-primary-light);
-  --font-anton: "Anton", sans-serif;
-  --font-inter: "Inter", sans-serif;
-  --font-roboto: "Roboto", sans-serif;
+  --color-primary-soft: var(--color-primary-soft);
+  --color-accent: var(--color-accent);
+  --color-sand: var(--color-sand);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-source-sans);
 }
 
 * {
@@ -31,29 +36,130 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter);
+  font-family: var(--font-body);
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Subtle motion */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes rail {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.image-rail {
+  overflow: hidden;
+}
+
+.image-rail-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: rail 28s linear infinite;
+}
+
+@keyframes reviewRail {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.review-rail {
+  overflow: hidden;
+}
+
+.review-rail-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: reviewRail 34s linear infinite;
 }
 
 /* Responsive Typography */
 @media (max-width: 768px) {
   h1 {
-    font-size: 3rem !important;
-    line-height: 1.1 !important;
+    font-size: 2.5rem !important;
+    line-height: 1.15 !important;
   }
 
   h2 {
-    font-size: 2.5rem !important;
-    line-height: 1.2 !important;
+    font-size: 2rem !important;
+    line-height: 1.25 !important;
   }
 }
 
 @media (max-width: 640px) {
   h1 {
-    font-size: 2rem !important;
+    font-size: 2.1rem !important;
   }
 
   h2 {
-    font-size: 1.75rem !important;
+    font-size: 1.6rem !important;
   }
 }
