@@ -1,27 +1,21 @@
 import type { Metadata } from "next";
-import { Anton, Inter, Roboto } from "next/font/google";
+import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const anton = Anton({
-  weight: "400",
-  variable: "--font-anton",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const roboto = Roboto({
-  weight: ["100", "300", "400", "500", "700"],
-  variable: "--font-roboto",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Pure Hug - Kids Diaper Website",
-  description: "Stay active and live life with Pure Hug premium diaper products",
+  description:
+    "Clean, breathable, eco-friendly diapers designed for comfort and confidence.",
 };
 
 export default function RootLayout({
@@ -31,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${anton.variable} ${inter.variable} ${roboto.variable} antialiased`}
-      >
+      <body className={`${playfair.variable} ${sourceSans.variable} antialiased`}>
         {children}
       </body>
     </html>
