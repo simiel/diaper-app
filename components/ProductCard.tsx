@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useCart } from "@/components/cart/CartContext";
 
 interface ProductCardProps {
   id: string;
@@ -18,6 +21,7 @@ export default function ProductCard({
   imageAlt = "Product",
   tag,
 }: ProductCardProps) {
+  const { addItem } = useCart();
   return (
     <div className="relative bg-white rounded-3xl border border-[var(--color-line)] p-6 flex flex-col items-center hover-lift">
       {/* Product Image */}
@@ -70,7 +74,10 @@ export default function ProductCard({
             />
           </svg>
         </Link>
-        <button className="flex items-center justify-center w-[52px] h-[52px] bg-[var(--color-primary-soft)] text-[var(--color-primary)] rounded-full hover:opacity-90 transition-opacity">
+        <button
+          className="flex items-center justify-center w-[52px] h-[52px] bg-[var(--color-primary-soft)] text-[var(--color-primary)] rounded-full hover:opacity-90 transition-opacity"
+          onClick={() => addItem(id, 1)}
+        >
           <span className="text-2xl leading-none">+</span>
           <span className="sr-only">Add to cart</span>
         </button>

@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useCart } from "@/components/cart/CartContext";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { openCart, totalItems } = useCart();
 
   return (
     <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -51,7 +53,11 @@ export default function Nav() {
 
         {/* Right Side Icons & Button */}
         <div className="flex items-center gap-4">
-          <button className="p-2 hover:opacity-70 transition-opacity relative">
+          <button
+            className="p-2 hover:opacity-70 transition-opacity relative"
+            onClick={openCart}
+            aria-label="Open cart"
+          >
             <svg
               width="24"
               height="24"
@@ -62,12 +68,14 @@ export default function Nav() {
             >
               <path d="M9 2v2M15 2v2M21 10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8M3 10h18M7 14h.01M11 14h.01M15 14h.01M7 18h.01M11 18h.01M15 18h.01" />
             </svg>
-            <span className="absolute top-0 right-0 bg-[var(--color-primary)] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              0
-            </span>
+            {totalItems > 0 && (
+              <span className="absolute top-0 right-0 bg-[var(--color-primary)] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {totalItems}
+              </span>
+            )}
           </button>
           <Link
-            href="/shop"
+            href="/products"
             className="hidden md:flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-sm uppercase tracking-wide hover:opacity-90 transition-opacity"
           >
             Shop now
@@ -127,7 +135,7 @@ export default function Nav() {
             Contact us
           </Link>
           <Link
-            href="/shop"
+            href="/products"
             className="mt-4 inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-sm uppercase tracking-wide"
           >
             Shop now

@@ -1,31 +1,5 @@
 import ProductCard from "./ProductCard";
-
-const products = [
-  {
-    id: "1",
-    name: "Newborn Comfort",
-    price: "GHS 48.00",
-    image: "/diaper1.png",
-    imageAlt: "Newborn Comfort Diapers",
-    tag: "0-3 months",
-  },
-  {
-    id: "2",
-    name: "Sensitive Skin",
-    price: "GHS 55.00",
-    image: "/diaper2.png",
-    imageAlt: "Sensitive Skin Diapers",
-    tag: "Most loved",
-  },
-  {
-    id: "3",
-    name: "Night Dry",
-    price: "GHS 62.00",
-    image: "/diaper3.png",
-    imageAlt: "Night Dry Diapers",
-    tag: "Overnight",
-  },
-];
+import { products } from "@/data/products";
 
 export default function ProductsSection() {
   return (
@@ -43,8 +17,16 @@ export default function ProductsSection() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+          {products.slice(0, 3).map((product) => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              price={`GHS ${product.price.toFixed(2)}`}
+              image={product.image}
+              imageAlt={product.name}
+              tag={product.tag}
+            />
           ))}
         </div>
       </div>

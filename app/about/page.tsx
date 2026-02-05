@@ -103,7 +103,7 @@ export default function AboutPage() {
               comfort, cleanliness, and peace of mind.
             </p>
             <Link
-              href="/shop"
+              href="/products"
               className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-8 py-4 rounded-full text-sm uppercase tracking-wide hover:opacity-90 transition-opacity"
             >
               Shop diapers
