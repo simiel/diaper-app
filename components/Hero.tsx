@@ -1,88 +1,54 @@
 import Link from "next/link";
-import Image from "next/image";
 import Nav from "./Nav";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[600px] bg-gradient-to-br from-[#FF9800] to-[#FFC107] overflow-hidden">
-      {/* Navbar */}
-      <Nav />
-
-      {/* Cloud decorations */}
-      <div className="absolute bottom-0 left-0 w-full h-32">
-        <div className="absolute bottom-[-200px] left-[-104px] w-[805px] h-[579px]">
-          <Image
-            src="/cloud1.svg"
-            alt="Cloud"
-            fill
-            className="object-contain rotate-y-0"
-            unoptimized
-          />
-        </div>
-        <div className="absolute bottom-[-400px] left-1/2 -translate-x-1/2 w-[805px] h-[579px]">
-          <Image
-            src="/cloud2.svg"
-            alt="Cloud"
-            fill
-            className="object-contain rotate-y-0"
-            unoptimized
-          />
-        </div>
-        <div className="absolute bottom-[-400px] right-[-100px] w-[805px] h-[579px]">
-          <Image
-            src="/cloud2.svg"
-            alt="Cloud"
-            fill
-            className="object-contain rotate-y-0"
-            unoptimized
-          />
-        </div>
+    <section
+      className="relative w-full min-h-screen bg-center bg-cover"
+      style={{
+        backgroundImage:
+          "url('https://images.pexels.com/photos/6392866/pexels-photo-6392866.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1800')",
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-[#f5f1ea]/85 via-[#f5f1ea]/55 to-transparent pointer-events-none z-0"></div>
+      <div className="relative z-20">
+        <Nav />
       </div>
 
-      {/* Star decorations */}
-      <div className="absolute top-20 left-10 w-4 h-4 text-white opacity-60">
-        <svg viewBox="0 0 16 16" fill="currentColor">
-          <path d="M8 0L9.8 5.8L16 6.4L11.6 10.2L13.2 16L8 12.8L2.8 16L4.4 10.2L0 6.4L6.2 5.8L8 0Z" />
-        </svg>
-      </div>
-      <div className="absolute top-40 right-20 w-4 h-4 text-white opacity-60">
-        <svg viewBox="0 0 16 16" fill="currentColor">
-          <path d="M8 0L9.8 5.8L16 6.4L11.6 10.2L13.2 16L8 12.8L2.8 16L4.4 10.2L0 6.4L6.2 5.8L8 0Z" />
-        </svg>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 min-h-[calc(100vh-120px)] flex items-center">
         {/* Left Content */}
-        <div className="flex-1 z-10">
-          <h1 className="font-['Anton'] text-4xl sm:text-6xl md:text-8xl lg:text-[130px] leading-tight lg:leading-[128px] uppercase text-[#522260] mb-8">
-            stay active and live life
+        <div className="max-w-2xl bg-white/85 backdrop-blur-sm border border-[var(--color-line)] rounded-3xl p-8 sm:p-10 shadow-xl fade-up">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-xs uppercase tracking-[0.2em] text-[var(--color-muted)] border border-[var(--color-line)]">
+            Clinically gentle • Eco‑friendly
+          </div>
+          <h1 className="text-4xl sm:text-6xl lg:text-[78px] leading-tight text-[var(--color-ink)] mt-6 mb-6">
+            Breathable, soft diapers for calm, confident days.
           </h1>
-          <p className="font-semibold text-xl leading-9 text-black mb-10 max-w-[748px]">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+          <p className="text-xl text-[var(--color-muted)] mb-8">
+            Pure Hug combines plant‑based materials, feather‑soft liners, and
+            leak‑lock cores to keep baby dry while letting skin breathe.
           </p>
-          <Link
-            href="/shop"
-            className="inline-flex items-center gap-1 bg-white text-[#522260] px-8 py-4 rounded-full font-['Anton'] text-2xl uppercase hover:opacity-90 transition-opacity"
-          >
-            Shop now
-            <svg width="21" height="21" viewBox="0 0 21 21" fill="none">
-              <path d="M8 4l8 6.5-8 6.5V4z" fill="currentColor" />
-            </svg>
-          </Link>
-        </div>
-
-        {/* Right Content - Product Images */}
-        <div className="flex-1 flex flex-col items-center lg:items-end gap-6 z-10">
-          <div className="relative w-full max-w-[528px] h-[400px] lg:h-[629px]">
-            <Image
-              src="/baby-diapers-bagpack.png"
-              alt="Pure Hug Diaper Product"
-              fill
-              className="object-contain rounded-2xl"
-              priority
-              unoptimized
-            />
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-8 py-4 rounded-full text-sm uppercase tracking-wide hover:opacity-90 transition-opacity"
+            >
+              Shop diapers
+              <svg width="18" height="18" viewBox="0 0 21 21" fill="none">
+                <path d="M8 4l8 6.5-8 6.5V4z" fill="currentColor" />
+              </svg>
+            </Link>
+            <Link
+              href="/learn-more"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm uppercase tracking-wide border border-[var(--color-line)] text-[var(--color-ink)] hover:bg-white transition-colors"
+            >
+              Learn more
+            </Link>
+          </div>
+          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.15em] text-[var(--color-muted)]">
+            <span>Dermatologist tested</span>
+            <span>Fragrance free</span>
+            <span>Plant‑based core</span>
           </div>
         </div>
       </div>
