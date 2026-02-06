@@ -56,7 +56,7 @@ export default function CartPage() {
                         {item.product?.name}
                       </p>
                       <p className="text-sm text-[var(--color-muted)]">
-                        GHS {item.product?.price.toFixed(2)}
+                        GHS {(item.product?.price ? item.product.price / 100 : 0).toFixed(2)}
                       </p>
                       <div className="mt-3 flex items-center gap-3">
                         <button
@@ -93,7 +93,7 @@ export default function CartPage() {
                 </h2>
                 <div className="flex items-center justify-between text-[var(--color-muted)] mb-3">
                   <span>Subtotal</span>
-                  <span>GHS {subtotal.toFixed(2)}</span>
+                  <span>GHS {(subtotal / 100).toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between text-[var(--color-muted)] mb-6">
                   <span>Delivery</span>

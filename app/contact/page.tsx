@@ -25,6 +25,18 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="py-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative h-[260px] w-full rounded-3xl overflow-hidden border border-[var(--color-line)]">
+            <img
+              src="/baby3.jpg"
+              alt="Care team and baby care"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white border border-[var(--color-line)] rounded-3xl p-8">

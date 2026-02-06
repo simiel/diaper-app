@@ -12,7 +12,7 @@ export const products: Product[] = [
   {
     id: "newborn-comfort",
     name: "Newborn Comfort",
-    price: 48,
+    price: 4800,
     image: "/diaper1.png",
     tag: "0-3 months",
     description:
@@ -22,7 +22,7 @@ export const products: Product[] = [
   {
     id: "sensitive-skin",
     name: "Sensitive Skin",
-    price: 55,
+    price: 5500,
     image: "/diaper2.png",
     tag: "Most loved",
     description:
@@ -32,7 +32,7 @@ export const products: Product[] = [
   {
     id: "night-dry",
     name: "Night Dry",
-    price: 62,
+    price: 6200,
     image: "/diaper3.png",
     tag: "Overnight",
     description:
@@ -42,7 +42,7 @@ export const products: Product[] = [
   {
     id: "active-days",
     name: "Active Days",
-    price: 58,
+    price: 5800,
     image: "/diaper2.png",
     tag: "Best for play",
     description:
@@ -52,7 +52,7 @@ export const products: Product[] = [
   {
     id: "eco-core",
     name: "Eco Core",
-    price: 60,
+    price: 6000,
     image: "/diaper1.png",
     tag: "Eco pick",
     description:
@@ -62,7 +62,7 @@ export const products: Product[] = [
   {
     id: "travel-pack",
     name: "Travel Pack",
-    price: 32,
+    price: 3200,
     image: "/diaper3.png",
     tag: "On the go",
     description:

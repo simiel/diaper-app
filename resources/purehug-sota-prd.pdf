@@ -1,0 +1,135 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2805 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+(Pure Hug — SOTA Feature Requests / PRD) Tj
+0 -14 Td
+(Date: 2026-02-05) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(1\) Payment Status + Order Confirmation) Tj
+0 -14 Td
+(Goal: Provide clear, trustworthy payment completion and post‑purchase confirmation.) Tj
+0 -14 Td
+(User Story: As a customer, I want to know whether my MoMo payment succeeded and receive a) Tj
+0 -14 Td
+(confirmation so I feel safe placing an order.) Tj
+0 -14 Td
+(Scope:) Tj
+0 -14 Td
+(- Poll MTN MoMo RequestToPay status and display pending/failed/success.) Tj
+0 -14 Td
+(- Show order confirmation page with order number, items, total, and next steps.) Tj
+0 -14 Td
+(- Capture payment reference and status in storage \(db or file for now\).) Tj
+0 -14 Td
+(Requirements:) Tj
+0 -14 Td
+(- POST /api/momo/request-to-pay returns referenceId.) Tj
+0 -14 Td
+(- GET /api/momo/status?referenceId=... returns status.) Tj
+0 -14 Td
+(- /order/confirmation page renders summary.) Tj
+0 -14 Td
+(Acceptance Criteria:) Tj
+0 -14 Td
+(- If payment is pending, UI shows instructions and auto-refresh.) Tj
+0 -14 Td
+(- If payment succeeds, user sees confirmation screen with details.) Tj
+0 -14 Td
+(- If payment fails, user sees retry option and support contact.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2\) Email Receipt + Transactional Messaging) Tj
+0 -14 Td
+(Goal: Deliver immediate confirmation and reduce support tickets.) Tj
+0 -14 Td
+(User Story: As a customer, I want an email receipt with my order details.) Tj
+0 -14 Td
+(Scope:) Tj
+0 -14 Td
+(- Send receipt email on successful payment.) Tj
+0 -14 Td
+(- Include order summary, delivery expectation, and support contact.) Tj
+0 -14 Td
+(Requirements:) Tj
+0 -14 Td
+(- SMTP or transactional email provider integration.) Tj
+0 -14 Td
+(- Store customer email + order details.) Tj
+0 -14 Td
+(Acceptance Criteria:) Tj
+0 -14 Td
+(- Email arrives within 1 minute after successful payment.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3\) Inventory + Shipping Rules) Tj
+0 -14 Td
+(Goal: Prevent overselling and set clear delivery expectations.) Tj
+0 -14 Td
+(User Story: As a shopper, I want to know if items are in stock and when they’ll arrive.) Tj
+0 -14 Td
+(Scope:) Tj
+0 -14 Td
+(- Stock counts per SKU.) Tj
+0 -14 Td
+(- Delivery estimates by region.) Tj
+0 -14 Td
+(- Shipping fee calculation.) Tj
+0 -14 Td
+(Requirements:) Tj
+0 -14 Td
+(- Inventory data source \(db or config\).) Tj
+0 -14 Td
+(- Shipping rules table.) Tj
+0 -14 Td
+(Acceptance Criteria:) Tj
+0 -14 Td
+(- Out-of-stock products cannot be added to cart.) Tj
+0 -14 Td
+(- Checkout shows delivery timeline and fees.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(4\) Cart Recovery + Resume Checkout) Tj
+0 -14 Td
+(Goal: Increase conversion by letting users resume checkout.) Tj
+0 -14 Td
+(User Story: As a shopper, I want to return later and continue where I left off.) Tj
+0 -14 Td
+(Scope:) Tj
+0 -14 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000003098 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+3168
+%%EOF

@@ -1,54 +1,12 @@
 import Header from "@/components/Header";
 import Nav from "@/components/Nav";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
+import Image from "next/image";
+import { getAllPosts } from "@/lib/repositories/blog";
 import Footer from "@/components/Footer";
 
-type PostMeta = {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-};
-
-const CONTENT_DIR = path.join(process.cwd(), "content", "blog");
-
-const parseFrontmatter = (raw: string, slug: string): PostMeta => {
-  const match = raw.match(/---\n([\s\S]*?)\n---/);
-  const frontmatter = match ? match[1] : "";
-  const get = (key: string) => {
-    const line = frontmatter
-      .split("\n")
-      .find((l) => l.trim().startsWith(`${key}:`));
-    return line ? line.split(":").slice(1).join(":").trim() : "";
-  };
-
-  return {
-    slug,
-    title: get("title") || "Untitled",
-    date: get("date") || "2025-01-01",
-    excerpt: get("excerpt") || "",
-  };
-};
-
-const getPosts = (): PostMeta[] => {
-  if (!fs.existsSync(CONTENT_DIR)) return [];
-  const files = fs
-    .readdirSync(CONTENT_DIR)
-    .filter((file) => file.endsWith(".md"));
-
-  return files
-    .map((file) => {
-      const slug = file.replace(".md", "");
-      const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf-8");
-      return parseFrontmatter(raw, slug);
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
-};
-
-export default function BlogPage() {
-  const posts = getPosts();
+export default async function BlogPage() {
+  const posts = await getAllPosts();
 
   return (
     <main className="min-h-screen bg-[var(--background)]">
@@ -80,6 +38,15 @@ export default function BlogPage() {
                 key={post.slug}
                 className="bg-white border border-[var(--color-line)] rounded-3xl p-6 hover-lift"
               >
+                <div className="relative h-40 w-full rounded-2xl overflow-hidden mb-4">
+                  <Image
+                    src={post.coverUrl || "/baby1.jpg"}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                </div>
                 <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">
                   {post.date}
                 </p>

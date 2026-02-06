@@ -1,50 +1,19 @@
 import Header from "@/components/Header";
 import Nav from "@/components/Nav";
-import fs from "fs";
-import path from "path";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import Image from "next/image";
+import { getPostBySlug } from "@/lib/repositories/blog";
 
-type Post = {
-  title: string;
-  date: string;
-  excerpt: string;
-  body: string[];
-};
-
-const CONTENT_DIR = path.join(process.cwd(), "content", "blog");
-
-const parsePost = (raw: string): Post => {
-  const match = raw.match(/---\n([\s\S]*?)\n---/);
-  const frontmatter = match ? match[1] : "";
-  const get = (key: string) => {
-    const line = frontmatter
-      .split("\n")
-      .find((l) => l.trim().startsWith(`${key}:`));
-    return line ? line.split(":").slice(1).join(":").trim() : "";
-  };
-  const body = raw.replace(/---[\s\S]*?---/, "").trim();
-  const paragraphs = body ? body.split(/\n\s*\n/) : [];
-
-  return {
-    title: get("title") || "Untitled",
-    date: get("date") || "2025-01-01",
-    excerpt: get("excerpt") || "",
-    body: paragraphs,
-  };
-};
-
-export default function BlogPostPage({
+export default async function BlogPostPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const filePath = path.join(CONTENT_DIR, `${params.slug}.md`);
-  if (!fs.existsSync(filePath)) {
+  const post = await getPostBySlug(params.slug);
+  if (!post) {
     notFound();
   }
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const post = parsePost(raw);
 
   return (
     <main className="min-h-screen bg-[var(--background)]">
@@ -58,6 +27,15 @@ export default function BlogPostPage({
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)] mb-4">
             {post.date}
           </p>
+          <div className="relative h-64 w-full rounded-3xl overflow-hidden mb-6">
+            <Image
+              src={post.coverUrl || "/baby2.jpg"}
+              alt={post.title}
+              fill
+              className="object-cover"
+              unoptimized
+            />
+          </div>
           <h1 className="text-4xl sm:text-6xl lg:text-[64px] text-[var(--color-ink)] mb-4">
             {post.title}
           </h1>

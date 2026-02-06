@@ -76,7 +76,7 @@ export default function CartDrawer() {
                   {item.product?.name}
                 </p>
                 <p className="text-xs text-[var(--color-muted)]">
-                  GHS {item.product?.price.toFixed(2)}
+                  GHS {(item.product?.price ? item.product.price / 100 : 0).toFixed(2)}
                 </p>
                 <div className="mt-2 flex items-center gap-2">
                   <button
@@ -112,7 +112,7 @@ export default function CartDrawer() {
           <div className="flex items-center justify-between">
             <p className="text-sm text-[var(--color-muted)]">Subtotal</p>
             <p className="text-lg text-[var(--color-ink)]">
-              GHS {subtotal.toFixed(2)}
+              GHS {(subtotal / 100).toFixed(2)}
             </p>
           </div>
           <Link

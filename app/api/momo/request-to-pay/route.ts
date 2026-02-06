@@ -25,7 +25,7 @@ const getAccessToken = async () => {
         Authorization: `Basic ${auth}`,
         "Ocp-Apim-Subscription-Key": subscriptionKey,
       },
-    }
+    },
   );
 
   if (!res.ok) {
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
         },
         body: JSON.stringify({
           amount: body.amount.toFixed(2),
-          currency: "GHS",
+          currency: "936",
           externalId: referenceId,
           payer: {
             partyIdType: "MSISDN",
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
           payerMessage: "Pure Hug order",
           payeeNote: "Pure Hug checkout",
         }),
-      }
+      },
     );
 
     if (!response.ok) {
@@ -86,7 +86,7 @@ export async function POST(request: Request) {
   } catch (error) {
     return NextResponse.json(
       { error: (error as Error).message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,10 +1,11 @@
 import Header from "@/components/Header";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { products } from "@/data/products";
+import { getAllProducts } from "@/lib/repositories/products";
 import ProductCard from "@/components/ProductCard";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const products = await getAllProducts();
   return (
     <main className="min-h-screen bg-[var(--background)]">
       <Header />
@@ -34,7 +35,7 @@ export default function ProductsPage() {
               key={product.id}
               id={product.id}
               name={product.name}
-              price={`GHS ${product.price.toFixed(2)}`}
+              price={`GHS ${(product.price / 100).toFixed(2)}`}
               image={product.image}
               imageAlt={product.name}
               tag={product.tag}

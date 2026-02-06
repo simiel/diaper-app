@@ -20,17 +20,17 @@ export default function CheckoutPage() {
     setStatus(null);
 
     const form = new FormData(e.currentTarget);
-    const payload = {
-      name: form.get("name"),
-      email: form.get("email"),
-      phone: form.get("phone"),
-      address: form.get("address"),
-      city: form.get("city"),
-      region: form.get("region"),
-      items,
-      amount: subtotal,
-      paymentMethod: method,
-    };
+      const payload = {
+        name: form.get("name"),
+        email: form.get("email"),
+        phone: form.get("phone"),
+        address: form.get("address"),
+        city: form.get("city"),
+        region: form.get("region"),
+        items,
+        amount: subtotal / 100,
+        paymentMethod: method,
+      };
 
     try {
       const res = await fetch("/api/momo/request-to-pay", {
@@ -154,7 +154,7 @@ export default function CheckoutPage() {
             </h2>
             <div className="flex items-center justify-between text-[var(--color-muted)] mb-3">
               <span>Subtotal</span>
-              <span>GHS {subtotal.toFixed(2)}</span>
+              <span>GHS {(subtotal / 100).toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between text-[var(--color-muted)] mb-3">
               <span>Delivery</span>
@@ -162,7 +162,7 @@ export default function CheckoutPage() {
             </div>
             <div className="flex items-center justify-between text-lg text-[var(--color-ink)] font-semibold">
               <span>Total</span>
-              <span>GHS {subtotal.toFixed(2)}</span>
+              <span>GHS {(subtotal / 100).toFixed(2)}</span>
             </div>
           </div>
         </div>

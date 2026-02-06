@@ -22,7 +22,7 @@ export default function ProductsSection() {
               key={product.id}
               id={product.id}
               name={product.name}
-              price={`GHS ${product.price.toFixed(2)}`}
+              price={`GHS ${(product.price / 100).toFixed(2)}`}
               image={product.image}
               imageAlt={product.name}
               tag={product.tag}
