@@ -10,14 +10,14 @@ export default function Hero() {
           "url('https://images.pexels.com/photos/6392866/pexels-photo-6392866.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1800')",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-[#f5f1ea]/85 via-[#f5f1ea]/55 to-transparent pointer-events-none z-0"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-r from-[#f5f1ea]/55 via-[#f5f1ea]/25 to-transparent pointer-events-none z-0"></div> */}
       <div className="relative z-20">
         <Nav />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 min-h-[calc(100vh-120px)] flex items-center">
         {/* Left Content */}
-        <div className="max-w-2xl bg-white/85 backdrop-blur-sm border border-[var(--color-line)] rounded-3xl p-8 sm:p-10 shadow-xl fade-up">
+        <div className="max-w-2xl bg-white/45 backdrop-blur-sm border border-[var(--color-line)] rounded-3xl p-8 sm:p-10 shadow-xl fade-up">
           <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-xs uppercase tracking-[0.2em] text-[var(--color-muted)] border border-[var(--color-line)]">
             Clinically gentle • Eco‑friendly
           </div>
