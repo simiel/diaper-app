@@ -1,5 +1,5 @@
-import { prisma } from "@/lib/prisma";
 import { products as fallbackProducts } from "@/data/products";
+import { prisma } from "@/lib/prisma";
 
 export const getAllProducts = async () => {
   try {
