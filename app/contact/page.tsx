@@ -43,27 +43,34 @@ export default function ContactPage() {
             <h2 className="text-2xl text-[var(--color-ink)] mb-6">
               Send a message
             </h2>
-            <form className="space-y-4">
+            <form className="space-y-4" action="/api/contact" method="post">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="text"
                   placeholder="Full name"
+                  name="name"
+                  required
                   className="w-full bg-[var(--color-sand)] text-[var(--color-ink)] px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
                 />
                 <input
                   type="email"
                   placeholder="Email address"
+                  name="email"
+                  required
                   className="w-full bg-[var(--color-sand)] text-[var(--color-ink)] px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
                 />
               </div>
               <input
                 type="text"
                 placeholder="Subject"
+                name="subject"
                 className="w-full bg-[var(--color-sand)] text-[var(--color-ink)] px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
               />
               <textarea
                 placeholder="Tell us how we can help"
                 rows={5}
+                name="message"
+                required
                 className="w-full bg-[var(--color-sand)] text-[var(--color-ink)] px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
               />
               <button className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-8 py-4 rounded-full text-sm uppercase tracking-wide hover:opacity-90 transition-opacity">

@@ -9,9 +9,10 @@ import { notFound } from "next/navigation";
 export default async function ProductDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const product = await getProductBySlug(params.id);
+  const { id } = await params;
+  const product = await getProductBySlug(id);
   if (!product) {
     notFound();
   }

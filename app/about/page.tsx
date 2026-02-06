@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Nav from "@/components/Nav";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { getFAQs } from "@/lib/repositories/faqs";
 
 const pillars = [
   {
@@ -68,26 +69,8 @@ const advice = [
   "Keep bedtime changes gentle and calm.",
 ];
 
-const faqs = [
-  {
-    q: "Are Pure Hug diapers safe for newborns?",
-    a: "Yes. Our newborn line uses ultra‑soft liners and is dermatologist tested.",
-  },
-  {
-    q: "Do you use fragrances or dyes?",
-    a: "No. We avoid added fragrances and unnecessary dyes to protect sensitive skin.",
-  },
-  {
-    q: "How long can one diaper last?",
-    a: "Our core is designed for up to 12 hours, though we recommend regular changes.",
-  },
-  {
-    q: "Are your diapers eco‑friendly?",
-    a: "We use plant‑based materials and responsibly sourced pulp wherever possible.",
-  },
-];
-
-export default function AboutPage() {
+export default async function AboutPage() {
+  const faqs = await getFAQs();
   return (
     <main className="min-h-screen bg-[var(--background)]">
       <Header />
@@ -193,13 +176,13 @@ export default function AboutPage() {
           <div className="space-y-4">
             {faqs.map((faq) => (
               <div
-                key={faq.q}
+                key={faq.question}
                 className="bg-white border border-[var(--color-line)] rounded-2xl p-6"
               >
                 <h3 className="text-lg text-[var(--color-ink)] mb-2">
-                  {faq.q}
+                  {faq.question}
                 </h3>
-                <p className="text-[var(--color-muted)]">{faq.a}</p>
+                <p className="text-[var(--color-muted)]">{faq.answer}</p>
               </div>
             ))}
           </div>

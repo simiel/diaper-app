@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
+import { prisma } from "@/lib/prisma";
 
 type RequestBody = {
   amount: number;
   phone: string;
   paymentMethod: "momo";
+  name?: string;
+  email?: string;
+  address?: string;
+  city?: string;
+  region?: string;
+  items?: { productId: string; quantity: number }[];
 };
 
 const getAccessToken = async () => {
@@ -80,6 +87,40 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const text = await response.text();
       throw new Error(text);
+    }
+
+    try {
+      await prisma.order.create({
+        data: {
+          referenceId,
+          status: "PENDING",
+          amount: Math.round(body.amount * 100),
+          email: body.email,
+          phone: body.phone,
+          name: body.name,
+          address: body.address,
+          city: body.city,
+          region: body.region,
+          items: {
+            create:
+              body.items?.map((item) => ({
+                productId: item.productId,
+                name: item.productId,
+                quantity: item.quantity,
+                price: 0,
+              })) || [],
+          },
+          payment: {
+            create: {
+              provider: "MTN_MOMO",
+              referenceId,
+              status: "PENDING",
+            },
+          },
+        },
+      });
+    } catch {
+      // best-effort order creation
     }
 
     return NextResponse.json({ referenceId });

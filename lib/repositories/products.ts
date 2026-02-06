@@ -42,6 +42,17 @@ export const getProductBySlug = async (slug: string) => {
       images: product.images.map((img) => ({ url: img.url, alt: img.alt })),
     };
   } catch {
-    return null;
+    const fallback = fallbackProducts.find((item) => item.id === slug);
+    if (!fallback) return null;
+    return {
+      id: fallback.id,
+      name: fallback.name,
+      price: fallback.price,
+      image: fallback.image,
+      tag: fallback.tag,
+      description: fallback.description,
+      features: fallback.features,
+      images: [{ url: fallback.image, alt: fallback.name }],
+    };
   }
 };

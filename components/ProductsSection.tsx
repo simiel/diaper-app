@@ -1,7 +1,8 @@
 import ProductCard from "./ProductCard";
-import { products } from "@/data/products";
+import { getAllProducts } from "@/lib/repositories/products";
 
-export default function ProductsSection() {
+export default async function ProductsSection() {
+  const products = await getAllProducts();
   return (
     <section className="relative w-full py-20 bg-[var(--background)]">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

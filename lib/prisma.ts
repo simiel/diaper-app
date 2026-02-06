@@ -1,16 +1,30 @@
-import { PrismaClient } from "@/lib/generated/prisma/client";
+import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
+import fs from "fs";
+import path from "path";
+import dotenv from "dotenv";
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
-};
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+
+const envCandidates = [".env.local", ".env.development.local", ".env"];
+const envPath = envCandidates.find((file) => fs.existsSync(path.resolve(file)));
+
+if (envPath) {
+  dotenv.config({ path: envPath });
+}
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+const adapter = new PrismaPg(pool);
 
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
-    accelerateUrl: process.env.PRISMA_ACCELERATE_URL ?? "",
+    adapter,
     log: ["error"],
   });
 
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
-}
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
